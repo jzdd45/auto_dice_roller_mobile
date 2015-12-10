@@ -1,0 +1,35 @@
+h1 {
+  text-indent: -9999px;
+  background-repeat: no-repeat;
+  background-image: center;
+  background-image: url(../images/tta_banner.png);
+  height: 160px;
+}
+  
+body {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-top: 5px;
+  color: #fff;
+  background-color: #192E5D;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div {
+  margin-top: 20px;
+  padding-bottom: 20px;
+  font-size: 20px;
+}
+
+select {
+  display: block;
+  padding: 20px 20px 20px 20px;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 20px 20px 20px 20px; 
+  
+}

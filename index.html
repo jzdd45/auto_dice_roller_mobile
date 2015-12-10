@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Automatic die Roller</title>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <div id="wrapper">
+    <h1>Automatic dice roller</h1>
+    <h4>Instructions:</h4>
+    <ol>
+      <li>Select the type of die you want to use from the dropdown</li>
+      <li>Select the number of dice you want to roll from the dropdown</li>
+      <li>Click roll to generate the results</li>
+      <li>Click clear if too many results have accumulated on the page</li>
+    </ol>
+    <form id="Player1">
+      
+      <label>Die type:</label>
+      <select id="die_type"><option>D6</option><option>D8</option><option>D10</option><option>D12</option><option>D20</option><option value="X-Wing attack">X-Wing attack</option><option value = "X-Wing defense">X-Wing defense</option><option>Armada blue die</option><option>Armada red die</option><option>Armada black die</option><option>Elder Sign red die</option><option>Elder Sign yellow die</option><option>Elder Sign green die</option><option>Dead of Winter Exposure die</option></select> 
+      
+      <label>Number of dice:</label>
+      <select id="die_number"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option></select> 
+
+      <button id="roll">Roll</button>
+      
+      <button id="clear">Clear</button>
+      
+      <div id="output">Results:</div>
+      
+    </form>
+    <script src="js/auto_dice_roller.js"></script>
+    </div>
+  </body>
+</html>

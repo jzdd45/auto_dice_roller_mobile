@@ -1,0 +1,422 @@
+Problem statement:
+
+I want to build a program that asks for a type of dice and the number of dice of that type you want to roll. 
+The program will generate a random number within the selected dice type (D8 = 1-8).
+Then it will send the results back to the main function and output each 
+result, as well as a sum of all the dice rolled.
+I also want the program to be styled with CSS to make it more aesthetically pleasing. 
+The user should also be able to select several different games with special 
+dice (Example: X-Wing, Armada, Elder Sign, and Dead of Winter).
+
+Nouns:  dice type, number of dice, random number, total value, form, css
+
+Verbs: prompt, generate random number, sum numbers, output
+
+
+Defining diagram:
+
+Inputs:
+  diceType
+  numberOfDice
+
+Processing:
+  Send diceType to a function that will select a random number based on the number of sides
+  Return random number result to the rest of the program
+  Check to see if there are more dice to be rolled
+  sum the dice results
+
+Output:
+  display each number
+  display summed results
+
+
+
+Pseudo code:
+
+diceRoller
+
+  main ()
+    prompt for a diceType "Please enter the type of dice you want to roll. (D6, D8, D12)"
+    prompt for the numberOfDice to be rolled with "Please enter how many dice you want to roll."
+    Check the result of the inputs with a switch statement
+
+    CASE diceType
+      "D6": set diceType to 6
+      "D8": set diceType to 8
+      "D10": set diceType to 10
+      "D12": set diceType to 12
+      "D20": set diceType to 20
+    ENDCASE
+
+    diceResultsCalc = randomNumberGenerator(diceType, numbrOfDice)
+    rollTotal = sumDiceResults(diceResultsCalc)
+    display diceResultsCalc
+    display rollTotal
+  END
+
+  randomNumberGenerator (diceType, numberOfDice)
+    FOR counter < numberOfDice
+      diceResult = a random number between 1 and the diceType
+      diceResultsToReturn.push(diceResults)
+      add 1 to counter
+    ENDFOR
+    return diceResultsToReturn
+  END
+
+  sumDiceResults (diceResultsCalc)
+    FOR diceResultsCalc.length > index
+      rollTotal += diceResultsCalc[index]
+    ENDFOR
+    return rollTotal
+  END
+END
+
+
+
+Test plans:
+
+Variables: 
+dieType, dieNumber
+
+Note: each test will be run 4 times to ensure accuracy since we are dealing with random numbers.
+
+Test plan 1
+Inputs: D6, 1
+Expected result: 1 random number between 1-6 without a total
+Actual result:
+
+Roll 1: 
+5
+
+Roll 2: 
+4
+
+Roll 3: 
+6
+
+Roll 4: 
+2
+
+Test plan 2
+Inputs: D6, 4
+Expected result: 4 random numbers between 1-6 with total
+Actual result:
+
+Roll 1:
+4, 2, 4, 2 = 12
+
+Roll 2: 
+5, 4, 4, 4 = 17
+
+Roll 3: 
+4, 5, 4, 3 = 16
+
+Roll 4: 
+1, 4, 5, 1 = 11
+
+Test plan 3
+Inputs: D8, 1
+Expected result: 1 random number between 1-8 without a total
+Actual result: 
+
+Roll 1: 
+5
+
+Roll 2: 
+7
+
+Roll 3: 
+6
+
+Roll 4: 
+2
+
+Test plan 4
+Inputs: D8, 3
+Expected result: 3 random numbers between 1-8 with a total
+Actual result: 
+
+Roll 1: 
+1, 7, 2 = 10
+
+Roll 2: 
+1, 8, 7 = 16
+
+Roll 3: 
+1, 1, 3 = 5
+
+Roll 4: 
+1, 8, 1 = 10
+
+Test plan 5
+Inputs: D10, 1
+Expected result: 1 random number between 1-10 without a total
+Actual result: 
+
+Roll 1: 
+9
+
+Roll 2: 
+9
+
+Roll 3: 
+8
+
+Roll 4: 
+6
+
+
+Test plan 6
+Inputs: D10, 5
+Expected result: 5 random numbers between 1-10 with a total
+Actual result: 
+
+Roll 1: 
+3, 5, 3, 7, 9 = 27
+
+Roll 2: 
+6, 6, 6, 10, 3 = 31
+
+Roll 3: 
+3, 8, 1, 1, 1 = 14
+
+Roll 4: 
+10, 9, 9, 6, 7 = 41
+
+Test plan 7
+Inputs: D12, 1
+Expected result: 1 random number between 1-12 without a total
+Actual result:
+
+Roll 1: 
+9
+
+Roll 2: 
+4
+
+Roll 3: 
+9
+
+Roll 4: 
+10
+
+Test plan 8
+Inputs: D12, 4
+Expected result: 4 random numbers between 1-12 with a total
+Actual result:
+
+Roll 1: 
+10, 7, 7, 1 = 25
+
+Roll 2: 
+2, 2, 9, 3 = 16
+
+Roll 3: 
+8, 10, 7, 12 = 37
+
+Roll 4: 
+6, 7, 10, 5 = 28
+
+Test plan 9
+Inputs: D20, 1
+Expected result: 1 random number between 1-20 without a total
+Actual result:
+
+Roll 1: 
+20
+
+Roll 2: 
+13
+
+Roll 3: 
+6
+
+Roll 4: 
+11
+
+Test plan 10
+Inputs: D20, 10
+Expected result: 10 random numbers between 1-20 with a total
+Actual result:
+
+Roll 1: 
+11, 13, 11, 9, 6, 6, 4, 1, 7, 15 = 83
+
+Roll 2: 
+13, 1, 4, 7, 19, 1, 1, 11, 10, 15 = 82
+
+Roll 3: 
+14, 13, 14, 20, 4, 19, 17, 3, 9, 6 = 119
+
+Roll 4: 
+12, 14, 6, 7, 4, 8, 4, 20, 1, 16 = 92
+
+Test plan 11
+Inputs: X-Wing attack, 3
+Expected result: 3 random X-Wing attack sides without a total
+Actual result:
+
+Roll 1: 
+Hit, Hit, Blank
+
+Roll 2: 
+Blank, Critical Hit, Blank
+
+Roll 3: 
+Focus, Hit, Critical Hit
+
+Roll 4: 
+Focus, Blank, Blank
+
+Test plan 12
+Inputs: X-Wing defense, 3
+Expected result: 3 random X-Wing defense sides without a total
+Actual result:
+
+Roll 1: 
+Evade, Evade, Blank
+
+Roll 2: 
+Focus, Evade, Focus
+
+Roll 3: 
+Blank, Evade, Evade
+
+Roll 4: 
+Evade, Evade, Evade
+
+Test plan 13
+Inputs: Armada blue die, 3
+Expected result: 3 random Armada blue die sides without a total
+Actual result:
+
+Roll 1: 
+Hit, Critical Hit, Hit
+
+Roll 2: 
+Hit, Hit, Accuracy
+
+Roll 3: 
+Hit, Accuracy, Hit
+
+Roll 4: 
+Hit, Critical Hit, Hit
+
+Test plan 14
+Inputs: Armada red die, 3
+Expected result: 3 random Armada red die sides without a total
+Actual result:
+
+Roll 1: 
+Hit, Double Hit, Accuracy
+
+Roll 2: 
+Blank, Blank, Blank
+
+Roll 3: 
+Blank, Hit, Hit
+
+Roll 4: 
+Hit, Accuracy, Blank
+
+Test plan 15
+Inputs: Armada black die, 3
+Expected result: 3 random Armada black die sides without a total
+Actual result:
+
+Roll 1: 
+Hit/Critical Hit, Hit, Hit
+
+Roll 2: 
+Hit, Hit, Hit
+
+Roll 3: 
+Blank, Hit/Critical Hit, Blank
+
+Roll 4: 
+Hit/Critical Hit, Hit/Critical Hit, Hit/Critical Hit
+
+Test plan 16
+Inputs: Elder Sign red die, 1
+Expected result: 1 random Elder Sign red die side without a total
+Actual result:
+
+Roll 1: 
+2 Investigation
+
+Roll 2: 
+Peril
+
+Roll 3: 
+Wildcard
+
+Roll 4: 
+Lore
+
+Test plan 17
+Inputs: Elder Sign yellow die, 1
+Expected result: 1 random Elder Sign yellow die side without a total
+Actual result:
+
+Roll 1: 
+1 Investigation
+
+Roll 2: 
+Peril
+
+Roll 3: 
+4 Investigation
+
+Roll 4: 
+2 Investigation
+
+Test plan 18
+Inputs: Elder Sign green die, 1
+Expected result: 1 random Elder Sign green die side without a total
+Actual result:
+
+Roll 1: 
+Lore
+
+Roll 2: 
+3 Investigation
+
+Roll 3: 
+3 Investigation
+
+Roll 4: 
+Terror
+
+Test plan 19
+Inputs: Dead of Winter Exposure die, 1
+Expected result: 1 random Dead of Winter Exposure die side without a total
+Actual result:
+
+Roll 1: 
+Frostbite
+
+Roll 2: 
+Bitten
+
+Roll 3: 
+Blank
+
+Roll 4: 
+Blank
+
+Test plan 20
+Inputs: D20, 20
+Expected result: 20 random numbers between 1-20 with a total
+Actual result:
+
+Roll 1: 
+15, 2, 20, 8, 20, 14, 4, 3, 9, 18, 16, 9, 10, 5, 7, 7, 11, 19, 19, 10 = 226
+
+Roll 2: 
+3, 17, 15, 18, 16, 17, 16, 5, 8, 9, 6, 3, 3, 6, 17, 19, 7, 2, 3, 10 = 200
+
+Roll 3: 
+14, 20, 18, 20, 17, 2, 20, 16, 14, 4, 20, 8, 8, 6, 15, 2, 19, 4, 10, 13 = 250
+
+Roll 4: 
+10, 20, 7, 3, 2, 12, 6, 17, 2, 5, 4, 7, 8, 16, 3, 16, 1, 2, 2, 15 = 158
